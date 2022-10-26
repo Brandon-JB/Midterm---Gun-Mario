@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MayrioController : MonoBehaviour
@@ -8,6 +9,8 @@ public class MayrioController : MonoBehaviour
     private float speed = 10f;
     private float jumpingPower = 20f;
     private bool isFacingRight = true;
+    public bool PlayerCode = true;
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -30,6 +33,8 @@ public class MayrioController : MonoBehaviour
         }
 
         flip();
+
+        Death();
     }
 
     private void fixedUpdate()
@@ -50,6 +55,21 @@ public class MayrioController : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<NotGoomba>())
+        {
+            PlayerCode = false;
+        }
+    }
+    private void Death()
+    {
+        if (PlayerCode == false)
+        {
+            Destroy(gameObject);
         }
     }
 }
