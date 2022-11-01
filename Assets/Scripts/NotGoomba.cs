@@ -10,6 +10,7 @@ public class NotGoomba : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = false;
     private Vector3 localScale;
+    public GameObject Enemy;
 
     void Start()
     {
@@ -24,6 +25,11 @@ public class NotGoomba : MonoBehaviour
         if (collision.GetComponent<Pipe>())
         {
             dirX *= -1f;
+        }
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(Enemy);
         }
     }
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1536055218415760991}
   m_Layer: 0
   m_Name: NotGoomba
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab0a5a1d6fff7b48b9534ae16bf9623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 1536055218415760988}
