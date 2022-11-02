@@ -11,18 +11,27 @@ public class NotGoomba : MonoBehaviour
     private bool facingRight = false;
     private Vector3 localScale;
     public GameObject Enemy;
+    public bool movingLeft = true;
 
     void Start()
     {
         localScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
-        dirX = -1f;
         moveSpeed = 3f;
+        if (movingLeft == true)
+        {
+            dirX = -1f;
+        }
+
+        else
+        {
+            dirX = 1f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Pipe>())
+        if (collision.gameObject.tag == "Ground")
         {
             dirX *= -1f;
         }

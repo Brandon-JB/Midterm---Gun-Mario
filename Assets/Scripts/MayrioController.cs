@@ -15,6 +15,14 @@ public class MayrioController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundlayer;
+    [SerializeField] GameObject GameOverScreen;
+    public AudioSource GameOver;
+    public GameObject AudioObject;
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -32,9 +40,13 @@ public class MayrioController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        flip();
+        if (Input.GetKeyDown("escape"))
+        {
+            GameOverScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
-        Death();
+        flip();
     }
 
     private void fixedUpdate()
@@ -63,16 +75,11 @@ public class MayrioController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<NotGoomba>())
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Spikes")
         {
-            PlayerCode = false;
-        }
-    }
-    private void Death()
-    {
-        if (PlayerCode == false)
-        {
-            Destroy(gameObject);
+            GameOver.Play();
+            GameOverScreen.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }

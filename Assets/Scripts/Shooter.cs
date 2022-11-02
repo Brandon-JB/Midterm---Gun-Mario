@@ -7,10 +7,11 @@ public class Shooter : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bullet;
+    public AudioSource Gunshot;
 
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("s"))
         {
             Shoot();
         }
@@ -18,7 +19,8 @@ public class Shooter : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);  
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Gunshot.Play();
     }
 }
 
