@@ -10,13 +10,13 @@ public class StupendousGunThingTheme : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this);
+            Instance = this;
         }
 
         DontDestroyOnLoad(gameObject);
