@@ -5,11 +5,19 @@ using UnityEngine;
 public class StupendousGunThingTheme : MonoBehaviour
 {
     public AudioSource mainTheme;
+    static StupendousGunThingTheme Instance;
 
     // Start is called before the first frame update
     void Start()
     {
-            mainTheme.Play();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
 
         DontDestroyOnLoad(gameObject);
     }
@@ -19,9 +27,4 @@ public class StupendousGunThingTheme : MonoBehaviour
     {
         
     }
-    public void Stop()
-    {
-        mainTheme.Stop();
-    }
-
 }

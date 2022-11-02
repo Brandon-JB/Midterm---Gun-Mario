@@ -9,7 +9,6 @@ public class WinScreen : MonoBehaviour
 
     public void Start()
     {
-        GetComponent<StupendousGunThingTheme>().mainTheme.Stop();
         Fanfare.Play();
     }
 
