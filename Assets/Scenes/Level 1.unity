@@ -10496,6 +10496,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6287608390610184106, guid: d3c3fa474ffe2744c9f145513a9d4e45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6287608390841508679, guid: d3c3fa474ffe2744c9f145513a9d4e45, type: 3}
       propertyPath: m_Name
       value: Canvas
